@@ -1,7 +1,7 @@
 var mdCalculadora = (function(document, undefined){
   var error_op = "La operación solicitada no existe.";
   var newVal = false,
-      maxLen = 9,
+      maxLen = 8,
       nOp1 = 0,
       nOp2 = 0,
       result = 0,
@@ -20,12 +20,21 @@ var mdCalculadora = (function(document, undefined){
     btn_igual: "igual",
     btn_mas  : "mas"
   };
-
+var botones = document.getElementsByClassName("tecla");
+  for (let i = 0; i < botones.length; i++) {
+   botones[i].addEventListener("mousedown", function () {
+   botones[i].style.transform = "scale(.93, .93)";
+   });
+   botones[i].addEventListener("mouseup", function () {
+botones[i].setAttribute("style", "transform:scale(1, 1)");
+});
+   };
+   
   var domBtns;
 
   function initVars(){
     newVal = false;
-    maxLen = 9;
+    maxLen = 8;
     nOp1 = 0;
     nOp2 = 0;
     result = 0;
